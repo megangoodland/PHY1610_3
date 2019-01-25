@@ -16,7 +16,7 @@ using namespace std;
 //      inputs: total           number you want divided
 //              in_out_array    initialized 2D square array
 //      output: updated version of given 2D square array with total number distributed evenly
-rarray<int,2> distribute_on_array(int total, const rarray<int,2>& in_out_array);
+rarray<int,2> distribute_on_array(int total, rarray<int,2>& in_out_array);
 
 // count_min_max: counts values in 2d array and determines minimum and maximum values
 // Parameters:
@@ -31,13 +31,13 @@ std::tuple<int,int,int> count_min_max(int total, const rarray<int,2>& array_2d);
 // Parameters:
 //      input: array_to_clear[]     array you want cleared
 //      output: array_to_clear[], now filled with 0's
-rarray<int,2> clear_array(const rarray<int,2>& array_to_clear);
+rarray<int,2> clear_array(rarray<int,2>& array_to_clear);
 
 // copy array: copy and paste arrays
 // Parameters:
 //      inputs: array to copy, array to paste
 //      outputs: updated pasted array
-rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, const rarray<int,2>& array_to_paste);
+rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, rarray<int,2>& array_to_paste);
 
 
 
