@@ -16,9 +16,9 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
     int length = number_of_ants.extent(0);
     size_t seed       = 11;     // seed for random number generation
     const int nmoves = 9; // There are (3 in the i direction)x(3 in the j direction)=9 possible moves
-    const rarray<int,1> imoves(nmoves)
+    const rarray<int,1> imoves(nmoves);
     imoves = -1,-1,-1, 0, 0, 0, 1, 1, 1; // Effect of each move on the i direction
-    const  rarray<int,1> jmoves(nmoves)
+    const  rarray<int,1> jmoves(nmoves);
     jmoves = -1, 0, 1,-1, 0, 1,-1, 0, 1; // Effect of each move on the j direction
     int* partition = new int[nmoves];   // used to determine how many ants move in which direction in a time step
     for (int i = 0; i < length;i++) {
