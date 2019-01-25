@@ -27,7 +27,7 @@ rarray<int,2> distribute_on_array(int total, rarray<int,2>& in_out_array){
 }
 
 // count_min_max: counts values in 2d array and determines minimum and maximum values
-std::tuple<int,int,int> count_min_max(int total, const rarray<int,2>& array_2d){
+std::tuple<int,int,int> count_min_max(int total, rarray<int,2>& array_2d){
     int len = array_2d.extent(0);
     int nmin = total;
     int nmax = 0;
@@ -58,7 +58,7 @@ rarray<int,2> clear_array(rarray<int,2>& array_to_clear){
 }
 
 // copy array: copy and paste arrays
-rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, rarray<int,2>& array_to_paste){
+rarray<int,2> copy_array(rarray<int,2>& array_to_copy, rarray<int,2>& array_to_paste){
     int len = array_to_copy.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
