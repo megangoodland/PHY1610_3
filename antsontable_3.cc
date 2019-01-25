@@ -82,7 +82,6 @@ int main()
         
         // report
         report_4_ints(t+1, total_ants, nmin, nmax);
-        std::cout << "      " << std::endl;
     }
 
     
