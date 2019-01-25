@@ -10,11 +10,13 @@
 #include "array_2d_tools.h"
 #include <iostream>
 #include <tuple>
+#include <rarray>
 using namespace std;
 
 
 // distribute_on_array: distributes total number given evenly on 2D array
-int* distribute_on_array(int total, int len, int in_out_array[]){ //int* is a pointer to the first val in array
+rarray<int,2> distribute_on_array(int total, const rarray<int,2>& in_out_array){
+    int len = in_out_array.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
             int n = i*len + j; // linear index
@@ -25,7 +27,8 @@ int* distribute_on_array(int total, int len, int in_out_array[]){ //int* is a po
 }
 
 // count_min_max: counts values in 2d array and determines minimum and maximum values
-std::tuple<int,int,int> count_min_max(int total, int len, int array_2d[]){
+std::tuple<int,int,int> count_min_max(int total, const rarray<int,2>& array_2d){
+    int len = array_2d.extent(0);
     int nmin = total;
     int nmax = 0;
     total = 0;
@@ -45,7 +48,8 @@ std::tuple<int,int,int> count_min_max(int total, int len, int array_2d[]){
 }
 
 // clear_array: empty initialized 2d array
-int* clear_array(int len, int array_to_clear[]){
+rarray<int,2> clear_array(const rarray<int,2>& array_to_clear){
+    int len = array_to_clear.extent(0);
     for (int i = 0; i < len;i++) {
         for (int j = 0; j < len;j++) {
             int n = i*len + j; // linear index
@@ -56,7 +60,8 @@ int* clear_array(int len, int array_to_clear[]){
 }
 
 // copy array: copy and paste arrays
-int* copy_array(int len, int array_to_copy[], int array_to_paste[]){
+rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, const rarray<int,2>& array_to_paste){
+    int len = array_to_copy.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
             int n = i*len + j; // linear index
