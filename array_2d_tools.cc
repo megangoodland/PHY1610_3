@@ -19,6 +19,7 @@ rarray<int,2> distribute_on_array(int total, const rarray<int,2>& in_out_array){
     int len = in_out_array.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
+            int n = i*len + j; // linear index
             in_out_array[i][j] = ((long long)(n+1)*total)/(len*len) - ((long long)(n)*total)/(len*len);
         }
     }
