@@ -21,8 +21,7 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
     int* partition = new int[nmoves];                 // used to determine how many ants move in which direction in a time step
     for (int i = 0; i < length;i++) {
         for (int j = 0; j < length;j++) {
-            std::cout << " make sure all i j's are hit " << std::endl;
-            std::cout << i << " " << j << std::endl;
+            std::cout << "i= " << i << " j=" << j << std::endl;
             int n = i*length + j; // linear index
             if (number_of_ants[i][j] > 0 ) {
                 // pick how many ants go in each of the 9 moves
