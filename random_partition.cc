@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <random>
 #include "random_partition.h"
+#include <algorithm>
 
 // Implementation of the function to randomly divide a number 'total'
 // into a set of 'numdivision' numbers that add up to 'total'. Uses
