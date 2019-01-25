@@ -79,12 +79,11 @@ int main()
         // count ants and determine minimum and maximum number on a square
         std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
         
-        report_4_ints(0,0,0,0);
-        
-        report_4_ints(number_of_ants[0,0], number_of_ants[0,1], number_of_ants[0,2], number_of_ants[0,3]);
-        report_4_ints(number_of_ants[1,0], number_of_ants[1,1], number_of_ants[1,2], number_of_ants[1,3]);
-        report_4_ints(number_of_ants[2,0], number_of_ants[2,1], number_of_ants[2,2], number_of_ants[2,3]);
-        report_4_ints(number_of_ants[3,0], number_of_ants[3,1], number_of_ants[3,2], number_of_ants[3,3]);
+        std::cout << "           " << std::endl;
+        std::cout << number_of_ants[0,0] << " " << number_of_ants[0,1] << " " << number_of_ants[0,2] << " " << number_of_ants[0,3] << std::endl;
+        std::cout << number_of_ants[1,0] << " " << number_of_ants[1,1] << " " << number_of_ants[1,2] << " " << number_of_ants[1,3] << std::endl;
+        std::cout << number_of_ants[2,0] << " " << number_of_ants[2,1] << " " << number_of_ants[2,2] << " " << number_of_ants[2,3] << std::endl;
+        std::cout << number_of_ants[3,0] << " " << number_of_ants[3,1] << " " << number_of_ants[3,2] << " " << number_of_ants[3,3] << std::endl;
 
         
         // report
