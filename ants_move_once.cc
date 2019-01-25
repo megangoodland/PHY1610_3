@@ -9,9 +9,11 @@
 #include "random_partition.h"
 #include <tuple>
 #include <iostream>
+#include <rarray>
 
 // ants_move_once function: have ants move into auxiliary table
-int* ants_move_once(int length, int number_of_ants[], int new_number_of_ants[]){
+rarray<int,2> ants_move_once(const rarray<int,2>& number_of_ants, const rarray<int,2>& new_number_of_ants){
+    int length = number_of_ants.extent(0);
     size_t seed       = 11;     // seed for random number generation
     const int nmoves = 9; // There are (3 in the i direction)x(3 in the j direction)=9 possible moves
     const int* imoves = new int[nmoves] {-1,-1,-1, 0, 0, 0, 1, 1, 1}; // Effect of each move on the i direction
