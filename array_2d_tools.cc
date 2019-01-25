@@ -19,8 +19,7 @@ rarray<int,2> distribute_on_array(int total, const rarray<int,2>& in_out_array){
     int len = in_out_array.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
-            int n = i*len + j; // linear index
-            in_out_array[n] = ((long long)(n+1)*total)/(len*len) - ((long long)(n)*total)/(len*len);
+            in_out_array[i][j] = ((long long)(n+1)*total)/(len*len) - ((long long)(n)*total)/(len*len);
         }
     }
     return in_out_array;
@@ -34,13 +33,12 @@ std::tuple<int,int,int> count_min_max(int total, const rarray<int,2>& array_2d){
     total = 0;
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
-            int n = i*len + j; // linear index
-            total += array_2d[n];
-            if (nmin > array_2d[n]) {
-                nmin = array_2d[n];
+            total += array_2d[i][j];
+            if (nmin > array_2d[i][j]) {
+                nmin = array_2d[i][j];
             }
-            if (nmax < array_2d[n]) {
-                nmax = array_2d[n];
+            if (nmax < array_2d[i][j]) {
+                nmax = array_2d[i][j];
             }
         }
     }
@@ -52,8 +50,7 @@ rarray<int,2> clear_array(const rarray<int,2>& array_to_clear){
     int len = array_to_clear.extent(0);
     for (int i = 0; i < len;i++) {
         for (int j = 0; j < len;j++) {
-            int n = i*len + j; // linear index
-            array_to_clear[n] = 0;
+            array_to_clear[i][j] = 0;
         }
     }
     return array_to_clear;
@@ -64,8 +61,7 @@ rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, const rarray<int,2>
     int len = array_to_copy.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
-            int n = i*len + j; // linear index
-            array_to_paste[n] = array_to_copy[n];
+            array_to_paste[i][j] = array_to_copy[i][j];
         }
     }
     return array_to_paste;
