@@ -18,26 +18,25 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
     const int nmoves = 9; // There are (3 in the i direction)x(3 in the j direction)=9 possible moves
     const int* imoves = new int[nmoves] {-1,-1,-1, 0, 0, 0, 1, 1, 1}; // Effect of each move on the i direction
     const int* jmoves = new int[nmoves] {-1, 0, 1,-1, 0, 1,-1, 0, 1}; // Effect of each move on the j direction
-    int* partition = new int[nmoves];                 // used to determine how many ants move in which direction in a time step
+    int* partition = new int[nmoves];   // used to determine how many ants move in which direction in a time step: length 9
     for (int i = 0; i < length;i++) {
         for (int j = 0; j < length;j++) {
             std::cout << "i= " << i << " j=" << j << std::endl;
             int n = i*length + j; // linear index
             if (number_of_ants[i][j] > 0 ) {
                 // pick how many ants go in each of the 9 moves
-                int print_guy = number_of_ants[i][j];
-                std::cout << "number_of_ants[i][j] before rand_partition: " << print_guy << std::endl;
                 rand_partition(number_of_ants[i][j], nmoves, partition, seed);
                 int print_guy2 = number_of_ants[i][j];
-                std::cout << "number_of_ants[i][j] after rand_partition: " << print_guy2 << std::endl;
-                // push ants in their respective moves
+                std::cout << "number_of_ants[i][j] before move: " << print_guy2 << std::endl;
+                // push ants in their respective moves. We're in i,j.
                 for (int m = 0; m < nmoves; m++) {
                     int i2 = i + imoves[m];
                     int j2 = j + jmoves[m];
+                    
                     // put only on new table if not falling off table
                     if (i2>=0 and i2<length and j2>=0 and j2<length) {
-                        int n = i2*length + j2; // linear index
-                        new_number_of_ants[i][j] += partition[m];
+                        //int n = i2*length + j2; // linear index
+                        new_number_of_ants[i2][j2] += partition[m];
                     }
                 }
             }
