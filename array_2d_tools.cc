@@ -15,7 +15,7 @@ using namespace std;
 
 
 // distribute_on_array: distributes total number given evenly on 2D array
-rarray<int,2> distribute_on_array(int total, const rarray<int,2>& in_out_array){
+rarray<int,2> distribute_on_array(int total, rarray<int,2>& in_out_array){
     int len = in_out_array.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
@@ -47,7 +47,7 @@ std::tuple<int,int,int> count_min_max(int total, const rarray<int,2>& array_2d){
 }
 
 // clear_array: empty initialized 2d array
-rarray<int,2> clear_array(const rarray<int,2>& array_to_clear){
+rarray<int,2> clear_array(rarray<int,2>& array_to_clear){
     int len = array_to_clear.extent(0);
     for (int i = 0; i < len;i++) {
         for (int j = 0; j < len;j++) {
@@ -58,7 +58,7 @@ rarray<int,2> clear_array(const rarray<int,2>& array_to_clear){
 }
 
 // copy array: copy and paste arrays
-rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, const rarray<int,2>& array_to_paste){
+rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, rarray<int,2>& array_to_paste){
     int len = array_to_copy.extent(0);
     for (int i = 0; i < len; i++) {
         for (int j = 0; j < len; j++) {
