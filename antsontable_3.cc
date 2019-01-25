@@ -45,8 +45,8 @@ int main()
 {
 
     // parameters
-    int    length     = 4;     //** length of the table 70*
-    int    time_steps = 10;  //** number of time steps to take 10000*
+    int    length     = 70;     //** length of the table 70*
+    int    time_steps = 10000;  //** number of time steps to take 10000*
     int    total_ants = 40000;  // initial number of ants
     
     // work arrays
@@ -70,24 +70,15 @@ int main()
         // ants move to a new an auxiliary new 'table'
         // empty auxiliary table first
         new_number_of_ants = clear_array(new_number_of_ants);
-        std::cout << " new_number_of_ants, after cleared " << std::endl;
-        std::cout << new_number_of_ants << std::endl;
+
         // have the ants move once
         new_number_of_ants = ants_move_once(number_of_ants, new_number_of_ants);
-        std::cout << " number_of_ants, after move (should be unchanged) " << std::endl;
-        std::cout << number_of_ants << std::endl;
-        std::cout << " new_number_of_ants, after move (changed) " << std::endl;
-        std::cout << new_number_of_ants << std::endl;
+
         // update number_of_ants
         number_of_ants = copy_array(new_number_of_ants, number_of_ants);
-        std::cout << " number_of_ants, after copy function (should be same as above) " << std::endl;
-        std::cout << number_of_ants << std::endl;
+ 
         // count ants and determine minimum and maximum number on a square
         std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
-        
-        std::cout << " after ants counted, number_of_ants " << std::endl;
-        std::cout << number_of_ants << std::endl;
-
         
         // report
         report_4_ints(t+1, total_ants, nmin, nmax);
