@@ -16,12 +16,13 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
     int length = number_of_ants.extent(0);
     size_t seed       = 11;     // seed for random number generation
     const int nmoves = 9; // There are (3 in the i direction)x(3 in the j direction)=9 possible moves
-    const int* imoves = new int[nmoves] {-1,-1,-1, 0, 0, 0, 1, 1, 1}; // Effect of each move on the i direction
-    const int* jmoves = new int[nmoves] {-1, 0, 1,-1, 0, 1,-1, 0, 1}; // Effect of each move on the j direction
-    int* partition = new int[nmoves];   // used to determine how many ants move in which direction in a time step
+    const rarray<int,1> imoves(nmoves)
+    imoves = -1,-1,-1, 0, 0, 0, 1, 1, 1; // Effect of each move on the i direction
+    const  rarray<int,1> jmoves(nmoves)
+    jmoves = -1, 0, 1,-1, 0, 1,-1, 0, 1; // Effect of each move on the j direction
+    rarray<int,1> partition(nmoves);   // used to determine how many ants move in which direction in a time step
     for (int i = 0; i < length;i++) {
         for (int j = 0; j < length;j++) {
-            int n = i*length + j; // linear index
             if (number_of_ants[i][j] > 0 ) {
                 // pick how many ants go in each of the 9 moves
                 rand_partition(number_of_ants[i][j], nmoves, partition, seed);
@@ -31,16 +32,12 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
                     int j2 = j + jmoves[m];
                     // put only on new table if not falling off table
                     if (i2>=0 and i2<length and j2>=0 and j2<length) {
-                        //int n = i2*length + j2; // linear index
                         new_number_of_ants[i2][j2] += partition[m];
                     }
                 }
             }
         }
     }
-    delete[] imoves;
-    delete[] jmoves;
-    delete[] partition;
     return new_number_of_ants;
 }
 
