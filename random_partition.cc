@@ -8,14 +8,13 @@
 #include <random>
 #include "random_partition.h"
 #include <algorithm>
-#include <rarray>
 
 // Implementation of the function to randomly divide a number 'total'
 // into a set of 'numdivision' numbers that add up to 'total'. Uses
 // c++11 random library to generate the randomness.
 
 
-void rand_partition(int total, int nparts, rarray<int,1> & nperpart, size_t seed)
+void rand_partition(int total, int nparts, int* nperpart, size_t seed)
 {
     // never mind the implementation, we'll see how this works in a future lecture.
     static std::mt19937 engine(seed);
