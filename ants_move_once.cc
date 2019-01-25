@@ -20,7 +20,7 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
     imoves = -1,-1,-1, 0, 0, 0, 1, 1, 1; // Effect of each move on the i direction
     const  rarray<int,1> jmoves(nmoves)
     jmoves = -1, 0, 1,-1, 0, 1,-1, 0, 1; // Effect of each move on the j direction
-    rarray<int,1> partition(nmoves);   // used to determine how many ants move in which direction in a time step
+    int* partition = new int[nmoves];   // used to determine how many ants move in which direction in a time step
     for (int i = 0; i < length;i++) {
         for (int j = 0; j < length;j++) {
             if (number_of_ants[i][j] > 0 ) {
@@ -38,6 +38,7 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
             }
         }
     }
+    delete[] partition;
     return new_number_of_ants;
 }
 
