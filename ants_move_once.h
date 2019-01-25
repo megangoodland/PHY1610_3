@@ -13,6 +13,6 @@
 //             number_of_ants      2d square array of current position of ants
 //             new_number_of_ants  empty 2d square array of same size to save new ant position
 //      output: updated new_number_of_ants
-rarray<int,2> ants_move_once(const rarray<int,2>& number_of_ants, rarray<int,2>& new_number_of_ants);
+rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_number_of_ants);
 
 #endif /* ants_move_once_h */
