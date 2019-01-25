@@ -25,7 +25,7 @@ rarray<int,2> distribute_on_array(int total, rarray<int,2>& in_out_array);
 //      outputs: total     sum of all values in array
 //               nmin      minimum number of ants on a square
 //               nmax      maximum number of ants on a square
-std::tuple<int,int,int> count_min_max(int total, const rarray<int,2>& array_2d);
+std::tuple<int,int,int> count_min_max(int total, rarray<int,2>& array_2d);
 
 // clear_array: empty initialized 2d array
 // Parameters:
@@ -37,7 +37,7 @@ rarray<int,2> clear_array(rarray<int,2>& array_to_clear);
 // Parameters:
 //      inputs: array to copy, array to paste
 //      outputs: updated pasted array
-rarray<int,2> copy_array(const rarray<int,2>& array_to_copy, rarray<int,2>& array_to_paste);
+rarray<int,2> copy_array(rarray<int,2>& array_to_copy, rarray<int,2>& array_to_paste);
 
 
 
