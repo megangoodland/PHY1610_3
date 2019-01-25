@@ -25,7 +25,11 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
             int n = i*length + j; // linear index
             if (number_of_ants[i][j] > 0 ) {
                 // pick how many ants go in each of the 9 moves
+                int print_guy = number_of_ants[i][j];
+                std::cout << "number_of_ants[i][j] before rand_partition: " << print_guy << std::endl;
                 rand_partition(number_of_ants[i][j], nmoves, partition, seed);
+                int print_guy = number_of_ants[i][j];
+                std::cout << "number_of_ants[i][j] after rand_partition: " << print_guy << std::endl;
                 // push ants in their respective moves
                 for (int m = 0; m < nmoves; m++) {
                     int i2 = i + imoves[m];
@@ -37,6 +41,8 @@ rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_n
                     }
                 }
             }
+            int print_guy = new_number_of_ants[i][j];
+            std::cout << "new_number_of_ants[i][j] after if statement " << print_guy << std::endl;
         }
     }
     delete[] imoves;
