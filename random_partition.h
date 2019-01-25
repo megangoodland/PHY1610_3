@@ -6,7 +6,6 @@
 #ifndef random_partition_h
 #define random_partition_h
 
-#include <rarray>
 // Function to randomly divide a number 'total' into a set of
 // 'numdivision' numbers that add up to 'total'.
 //
@@ -16,6 +15,6 @@
 //   nperpart  resulting number in each partition (output)
 //   seed      the seed for the random number generator (input)
 
-void rand_partition(int total, int nparts, rarray<int,1> & nperpart, size_t seed);
+void rand_partition(int total, int nparts, int* nperpart, size_t seed);
 
 #endif /* random_partition_h */
