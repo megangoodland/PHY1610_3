@@ -12,7 +12,7 @@
 #include <rarray>
 
 // ants_move_once function: have ants move into auxiliary table
-rarray<int,2> ants_move_once(const rarray<int,2>& number_of_ants, rarray<int,2>& new_number_of_ants){
+rarray<int,2> ants_move_once(rarray<int,2>& number_of_ants, rarray<int,2>& new_number_of_ants){
     int length = number_of_ants.extent(0);
     size_t seed       = 11;     // seed for random number generation
     const int nmoves = 9; // There are (3 in the i direction)x(3 in the j direction)=9 possible moves
