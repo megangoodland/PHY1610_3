@@ -14,7 +14,7 @@
 // c++11 random library to generate the randomness.
 
 
-void rand_partition(int total, int nparts, int* nperpart, size_t seed)
+void rand_partition(int total, int nparts, rarray<1,int> & nperpart, size_t seed)
 {
     // never mind the implementation, we'll see how this works in a future lecture.
     static std::mt19937 engine(seed);
