@@ -15,6 +15,6 @@
 //   nperpart  resulting number in each partition (output)
 //   seed      the seed for the random number generator (input)
 
-void rand_partition(int total, int nparts, int* nperpart, size_t seed);
+void rand_partition(int total, int nparts, rarray<1,int> & nperpart, size_t seed);
 
 #endif /* random_partition_h */
