@@ -7,8 +7,8 @@ int main() {
     NcFile dataFile("1st.netCDF.nc", NcFile::read);
     
     // Read the two dimensions.
-    Ncdim xDim = dataFile.getDim("x");
-    Ncdim yDim = dataFile.getDim("y");
+    NcDim xDim = dataFile.getDim("x");
+    NcDim yDim = dataFile.getDim("y");
     int nx = xDim.getSize();
     int ny = yDim.getSize();
     std::cout << "Our matrix is " << nx << " by " << ny << std::endl;
