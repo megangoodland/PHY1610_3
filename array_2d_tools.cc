@@ -19,6 +19,8 @@ rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_arr
     int nx = addition_array.extent(0);
     int ny_new =  addition_array.extent(1) + old_array.extent(1);
     int ny_old =  old_array.extent(1);
+    std::cout << "addition_array" << addition_array << std::endl;
+    std::cout << "old_array" << old_array;
     std::cout << "nx = " << nx << " ny_new = " << ny_new << " ny_old " << ny_old << std::endl;
     rarray<int,2> new_array(nx,ny_new); // initialize new array
     std::cout << "first loopy" << std::endl;
