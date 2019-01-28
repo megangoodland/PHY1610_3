@@ -46,7 +46,7 @@ int main()
 {
 
     // parameters
-    int    length     = 10;     //** length of the table 70*
+    int    length     = 5;     //** length of the table 70*
     int    time_steps = 2000;  //** number of time steps to take 10000*
     int    total_ants = 40000;  // initial number of ants
     
@@ -79,20 +79,10 @@ int main()
         
         // report
        // report_4_ints(t+1, total_ants, nmin, nmax);
-        if (t == 1000){
-            rarray<int,2> number_of_ants_1000(length,length); 
-            number_of_ants_1000 = copy_array(number_of_ants, number_of_ants_1000);
+        if (t % 1000 == 0){
+            netCDF_write(number_of_ants);
         }
-        if ((t % 1000 == 0) && (t > 1000)){
-            int div = t/1000; // multiple of 1000 we're at
-            int ny = length*div; // length of new array
-            rarray<int,2> new_number_of_ants_1000(length,ny); //auxiliary new array
-            new_number_of_ants_1000 = append_array(number_of_ants_1000, number_of_ants);
-            std::cout << new_number_of_ants_1000 << std::endl;
-        }
-    }
-    
-    netCDF_write(new_number_of_ants);
+    //netCDF_write(new_number_of_ants);
     netCDF_read();
     return 0;
 }
