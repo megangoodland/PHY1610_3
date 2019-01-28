@@ -2,7 +2,7 @@
 #include <vector>
 #include <netcdf>
 using namespace netCDF;
-int main() {
+int netCDF_write() {
    int nx = 6, ny = 12;
    int dataOut[nx][ny]; 
    for(int i = 0; i < nx; i++)
@@ -21,6 +21,6 @@ int main() {
    // Put the data in the file.
    data.putVar(&dataOut);
    // Add an attribute.
-   dataFile.putAtt("Creation date:", "12 Dec 2014");
+   dataFile.putAtt("Creation date:", "27 Jan 2019");
    return 0; 
 }
