@@ -30,7 +30,7 @@ rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_arr
     }
     for (int i = 0; i < nx; i++) {
         for (int j = ny_old; j < ny_new; j++) {
-            new_array[i][j] = addition_array[i][j-nx];
+            new_array[i][j] = addition_array[i][j-ny_old];
         }
     }
     std::cout << new_array << std::endl;
