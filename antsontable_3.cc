@@ -82,12 +82,12 @@ int main()
         std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
         
         // report
-        report_4_ints(t+1, total_ants, nmin, nmax);
+       // report_4_ints(t+1, total_ants, nmin, nmax);
     }
     
     rarray<int,2> array_1(4,4);
     rarray<int,2> array_2(4,4);
-    //std::cout << array_1 << std::endl;
+    std::cout << append_array(array_1, array_2) << std::endl;
 
     netCDF_write(new_number_of_ants);
     netCDF_read();
