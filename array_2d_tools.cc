@@ -11,6 +11,7 @@
 #include <iostream>
 #include <tuple>
 #include <rarray>
+#include <rarrayio>
 using namespace std;
 
 // append_array: adds square array to end of existing array, returns combination
