@@ -13,6 +13,25 @@
 #include <rarray>
 using namespace std;
 
+// append_array: adds square array to end of existing array, returns combination
+rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_array){
+    int nx = addition_array.extent(0);
+    int ny =  addition_array.extent(1) + old_array.extent(1);
+    rarray<int,2> new_array(nx,ny); // initialize new array
+    for (int i = 0; i < nx; i++) {
+        for (int j = 0; j < old_array.extent(1); j++) {
+            new_array[i][j] = old_array[i][j];
+        }
+    }
+    for (int i = 0; i < nx; i++) {
+        for (int j = old_array.extent(1); j < ny; j++) {
+            new_array[i][j] = addition_array[i][j];
+        }
+    }
+    return new_array
+    
+}
+
 
 // distribute_on_array: distributes total number given evenly on 2D array
 rarray<int,2> distribute_on_array(int total, rarray<int,2>& in_out_array){
