@@ -63,9 +63,10 @@ int netCDF_read() {
           std::cout << p[i][j] << " "; 
        }
        std::cout << std::endl; // new row
-       if ((j+1) % nx == 0){ // if there isn't a remainder 
-          std::cout << std::endl; // new row
-          std::cout << std::endl; // new row
+       std::cout <<"here!" <<std::endl; // new row
+       //if ((j+1) % nx == 0){ // if there isn't a remainder 
+       //   std::cout << std::endl; // new row
+        //  std::cout << std::endl; // new row
        }
      }
     return 0; 
