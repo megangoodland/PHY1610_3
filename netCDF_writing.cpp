@@ -3,10 +3,11 @@
 #include <netcdf>
 using namespace netCDF;
 int main() {
-int nx = 6, ny = 12;
-int dataOut[nx][ny]; for(int i = 0; i < nx; i++)
+   int nx = 6, ny = 12;
+   int dataOut[nx][ny]; 
+   for(int i = 0; i < nx; i++)
        for(int j = 0; j < ny; j++)
-          dataOut[i][j] = i * ny + j;
+             dataOut[i][j] = i * ny + j;
    // Create the netCDF file.
    NcFile dataFile("1st.netCDF.nc", NcFile::replace);
    // Create the two dimensions.
@@ -21,4 +22,5 @@ int dataOut[nx][ny]; for(int i = 0; i < nx; i++)
    data.putVar(&dataOut);
    // Add an attribute.
    dataFile.putAtt("Creation date:", "12 Dec 2014");
-return 0; }
+   return 0; 
+}
