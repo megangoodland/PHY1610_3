@@ -81,7 +81,7 @@ int main(){
         std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
         
         // report
-        report_4_ints(t+1, total_ants, nmin, nmax);
+       // report_4_ints(t+1, total_ants, nmin, nmax);
         
         // record number_of_ants every 1000 time steps
         if ((t+1) % 1000 == 0){ // if the time step is divisible by 1000
