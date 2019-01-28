@@ -85,8 +85,8 @@ int main()
         report_4_ints(t+1, total_ants, nmin, nmax);
     }
 
-    netCDF_write()
-    netCDF_read()
+    netCDF_write();
+    netCDF_read();
     return 0;
 }
 
