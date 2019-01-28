@@ -14,25 +14,22 @@
 #include <rarrayio>
 using namespace std;
 
-// append_array: adds square array to end of existing array, returns combination
-rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_array){
-    int nx = addition_array.extent(0);
-    int ny_new =  addition_array.extent(1) + old_array.extent(1);
-    int ny_old =  old_array.extent(1);
-    rarray<int,2> new_array(nx,ny_new); // initialize new array
-    // populate with old array
+// outputs holding array with addition added
+// input holding array, addition array, and which multiple of 1000 we're at
+rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& holding_array, int mult){
+    int nx = addition_array.extent(0); // the x dimension and y dimension of addition_array
+    //int ny = holding_array.extent(1); // the y dimension of holding_array
+    int j_start = (mult-1)*nx; // starting j for holding array 
+    // ex. mult = 1, 50x50 matrix, j_start is 0
+    //     mult = 2, 50x50 matrix, j_start is 50
+
+    // populate holding array
     for (int i = 0; i < nx; i++) {
-        for (int j = 0; j < ny_old; j++) {
-            new_array[i][j] = old_array[i][j];
+        for (int j = 0; j < nx; j++) {
+            holding_array[i][j+j_start] = addition_array[i][j];
         }
     }
-    // populate with the addition array
-    for (int i = 0; i < nx; i++) {
-        for (int j = ny_old; j < ny_new; j++) {
-            new_array[i][j] = addition_array[i][j-ny_old];
-        }
-    }
-    return new_array;
+    return holding_array;
 }
 
 
