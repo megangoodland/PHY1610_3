@@ -19,7 +19,7 @@ int netCDF_write(rarray<int,2>& array_to_print) {
              dataOut[i][j] = array_to_print[i][j];
    
    // Create the netCDF file.
-   NcFile dataFile("1st.netCDF.nc", NcFile::replace);
+   NcFile dataFile("ants.nc", NcFile::replace);
    // Create the two dimensions.
    NcDim xDim = dataFile.addDim("x",nx);
    NcDim yDim = dataFile.addDim("y",ny);
