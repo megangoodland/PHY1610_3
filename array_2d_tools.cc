@@ -16,18 +16,25 @@ using namespace std;
 // append_array: adds square array to end of existing array, returns combination
 rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_array){
     int nx = addition_array.extent(0);
-    int ny =  addition_array.extent(1) + old_array.extent(1);
+    int ny_new =  addition_array.extent(1) + old_array.extent(1);
+    int ny_old =  old_array.extent(1);
+    std::cout << "nx = " << nx << " ny_new = " << ny_new << " ny_old " << ny_old << std::endl;
     rarray<int,2> new_array(nx,ny); // initialize new array
+    std::cout << "first loopy" << std::endl;
     for (int i = 0; i < nx; i++) {
-        for (int j = 0; j < old_array.extent(1); j++) {
+        for (int j = 0; j < ny_old; j++) {
             new_array[i][j] = old_array[i][j];
+            std::cout << "i " << i << " j " << j << std::endl;
         }
     }
+    std::cout << "second loopy" << std::endl;
     for (int i = 0; i < nx; i++) {
-        for (int j = old_array.extent(1); j < ny; j++) {
+        for (int j = ny_old; j < ny_new; j++) {
             new_array[i][j] = addition_array[i][j];
+            std::cout << "i " << i << " j " << j << std::endl;
         }
     }
+    std::cout << new_array << std::endl
     return new_array;
     
 }
