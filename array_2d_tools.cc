@@ -34,7 +34,7 @@ rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_arr
             std::cout << "i " << i << " j " << j << std::endl;
         }
     }
-    std::cout << new_array << std::endl
+    std::cout << new_array << std::endl;
     return new_array;
     
 }
