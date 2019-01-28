@@ -43,9 +43,10 @@ using namespace std;
 int main(){
 
     // parameters
-    int    length     = 70;     //** length of the table 70*
-    int    time_steps = 10000;  //** number of time steps to take 10000*
+    int    length     = 70;     // length of the table 70
+    int    time_steps = 10000;  // number of time steps to take 10000
     int    total_ants = 40000;  // initial number of ants
+    int    when_to_save = 1000; // going to save the ant positions every _____ timesteps
     
     // work arrays
     rarray<int,2> number_of_ants(length,length);     // distribution of ants on the table over squares.
@@ -53,10 +54,10 @@ int main(){
     int nmin = total_ants;                 // will hold the minimum number of ants on any square
     int nmax = 0;                          // will hold the maximum number of ants on any square
     
-    // want to save the number of ants on the table every 1000 timesteps
-    int nsaves = time_steps/1000;
+    // want to save the number of ants on the table every when_to_save timesteps
+    int nsaves = time_steps/when_to_save;
     int ny = nsaves*length;
-    rarray<int,2> number_of_ants_1000(length,ny); // will save the data of number_of_ants array every 1000 timesteps
+    rarray<int,2> number_of_ants_1000(length,ny); // will hold the data of number_of_ants array every when_to_save timesteps
     
     // place the ants evenly on the table
     number_of_ants = distribute_on_array(total_ants, number_of_ants);
@@ -65,7 +66,7 @@ int main(){
     std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
     
     // report initial placement
-    report_4_ints(0, total_ants, nmin, nmax);
+    //report_4_ints(0, total_ants, nmin, nmax);
     
     // run time steps
 
