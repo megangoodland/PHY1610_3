@@ -43,7 +43,7 @@ using namespace std;
 int main(){
 
     // parameters
-    int    length     = 10;     //** length of the table 70*
+    int    length     = 70;     //** length of the table 70*
     int    time_steps = 10000;  //** number of time steps to take 10000*
     int    total_ants = 40000;  // initial number of ants
     
