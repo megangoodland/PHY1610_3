@@ -85,10 +85,10 @@ int main(){
         
         if ((t+1) % 1000 == 0){ // if the time step is divisible by 1000
             int save_number = (t+1)/1000;
-            number_of_ants_1000 = append_array(number_of_ants, number_of_ants_1000, save_number);}
-            
+            number_of_ants_1000 = append_array(number_of_ants, number_of_ants_1000, save_number);}       
     }
-   
+    
+    cout << number_of_ants_1000 << endl;
     netCDF_write(number_of_ants_1000);   
     netCDF_read();
     return 0;
