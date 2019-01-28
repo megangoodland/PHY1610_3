@@ -14,7 +14,7 @@
 //
 //     make
 //
-// On the clusters, it will be necessary to load the "gcc" module first.
+// On the clusters, it will be necessary to load the gcc, hdf5, and netcdf modules first.
 //
 // Run with
 //
@@ -66,7 +66,7 @@ int main(){
     std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
     
     // report initial placement
-    //report_4_ints(0, total_ants, nmin, nmax);
+    report_4_ints(0, total_ants, nmin, nmax);
     
     // run time steps
 
@@ -82,11 +82,11 @@ int main(){
         std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
         
         // report
-       // report_4_ints(t+1, total_ants, nmin, nmax);
+        report_4_ints(t+1, total_ants, nmin, nmax);
         
         // record number_of_ants every 1000 time steps
-        if ((t+1) % 1000 == 0){ // if the time step is divisible by 1000
-            int save_number = (t+1)/1000;
+        if ((t+1) % when_to_save == 0){ // if the time step is divisible by 1000
+            int save_number = (t+1)/when_to_save;
             number_of_ants_1000 = append_array(number_of_ants, number_of_ants_1000, save_number);}       
     }
     
