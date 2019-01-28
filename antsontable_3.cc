@@ -65,7 +65,7 @@ int main(){
     report_4_ints(0, total_ants, nmin, nmax);
     
     // run time steps
-    for (int t = 0; t < time_steps; t++)
+    for (int t = 0; t < time_steps; t++){
         
         // ants move to a new an auxiliary new 'table'
         // empty auxiliary table first
@@ -79,8 +79,9 @@ int main(){
         
         // report
         report_4_ints(t+1, total_ants, nmin, nmax);
-        if (t % 1000 == 0)
-            netCDF_write(number_of_ants);
+        if (t % 1000 == 0){
+            netCDF_write(number_of_ants);}
+    }
         
     //netCDF_write(new_number_of_ants);
     netCDF_read();
