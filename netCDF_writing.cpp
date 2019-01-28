@@ -36,7 +36,7 @@ int netCDF_write(rarray<int,2>& array_to_print) {
 }
 
 // reads file
-// have to get the number of square arrays you put in the write file
+// nx is the length of the square matrices
 int netCDF_read() {
     // Specify the netCDF file. 
     NcFile dataFile("1st.netCDF.nc", NcFile::read);
@@ -44,9 +44,9 @@ int netCDF_read() {
     // Read the two dimensions.
     NcDim xDim = dataFile.getDim("x");
     NcDim yDim = dataFile.getDim("y");
-    int nx = xDim.getSize();
-    int ny = yDim.getSize();
-   // int sq_arrays_num = 
+    int nx = xDim.getSize(); // this will be the length of sq matrices
+    int ny = yDim.getSize(); // this will be longer by a int multiple
+
     std::cout << "Our matrix is " << nx << " by " << ny << std::endl;
     int **p = new int *[nx];
     p[0] = new int[nx * ny];
@@ -57,12 +57,16 @@ int netCDF_read() {
     NcVar data = dataFile.getVar("data");
     // Put the data in a var.
     data.getVar(p[0]);
-   // arranging it like a matrix... maybe 
+    // arranging data 
     for(int i = 0; i < nx; i++) {
-      for(int j = 0; j < ny; j++) {
-         std::cout << p[i][j] << " "; 
-      }
-      std::cout << std::endl;
+       for(int j = 0; j < ny; j++) {
+          std::cout << p[i][j] << " "; 
+       }
+       std::cout << std::endl; // new row
+       if ((j+1) % nx == 0){ // if there isn't a remainder 
+          std::cout << std::endl; // new row
+          std::cout << std::endl; // new row
+       }
      }
     return 0; 
 }
