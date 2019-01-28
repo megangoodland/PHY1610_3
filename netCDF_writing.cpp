@@ -58,16 +58,15 @@ int netCDF_read() {
     // Put the data in a var.
     data.getVar(p[0]);
     // arranging data 
-    for(int i = 0; i < nx; i++) {
-       for(int j = 0; j < ny; j++) {
-          std::cout << p[i][j] << " "; 
-       }
-       std::cout << std::endl; // new row
-       std::cout <<"here!" <<std::endl; // new row
-       //if ((j+1) % nx == 0){ // if there isn't a remainder 
-       //   std::cout << std::endl; // new row
-        //  std::cout << std::endl; // new row
-       //}
+    int mult = ny/nx; //total # of matrices
+    for (int m = 0; i < mult){
+      std::cout << "This is saved matrix: " << (m+1) << std::endl;
+      for(int i = 0; i < nx; i++) {
+         for(int j = (m*nx); j < ((m+1)*nx); j++) { //for 10x10 it would go 0-9, then 10-19, and so on
+            std::cout << p[i][j] << " ";  // spaces between
+         }
+         std::cout << std::endl; // new row
      }
+    }
     return 0; 
 }
