@@ -82,7 +82,7 @@ int main()
         std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
         
         // report
-        report_4_ints(t+1, total_ants, nmin, nmax);
+       // report_4_ints(t+1, total_ants, nmin, nmax);
     }
     
     rarray<int,2> array_1(4,4);
