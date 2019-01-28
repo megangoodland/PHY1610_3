@@ -15,7 +15,7 @@ using namespace std;
 // Parameters:
 //      inputs:   holding array, addition array, and which position within holding array to place additiona array (mult)
 //      output:   holding array with addition added
-rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& holding_array, int mult){
+rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& holding_array, int mult);
 
 // distribute_on_array: distributes total number given evenly on 2D array
 // Parameters:
