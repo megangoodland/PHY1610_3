@@ -9,7 +9,8 @@
 using namespace netCDF;
 
 
-// writes file
+// Writes file containing matrix that is a combination of the saved square matrices.
+// Information is formatted properly in the read function.
 int netCDF_write(rarray<int,2>& array_to_print) {
    int nx = array_to_print.extent(0);
    int ny = array_to_print.extent(1);
@@ -35,7 +36,7 @@ int netCDF_write(rarray<int,2>& array_to_print) {
    return 0; 
 }
 
-// reads and formats file for antsontable
+// Reads and formats file for antsontable
 int netCDF_read() {
     // Specify the netCDF file. 
     NcFile dataFile("ants.nc", NcFile::read);
