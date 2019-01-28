@@ -11,6 +11,13 @@
 #include <rarray>
 using namespace std;
 
+// append_array: adds square array to end of existing array, returns combination
+// Parameters:
+// inputs: addition_array: the square array to add to the end of old_array
+//         old_array: the old array
+// output: old array with addition array tacked on the end in the second dimension
+rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_array);
+
 // distribute_on_array: distributes total number given evenly on 2D array
 // Parameters:
 //      inputs: total           number you want divided
