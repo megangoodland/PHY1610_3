@@ -46,8 +46,8 @@ int main()
 {
 
     // parameters
-    int    length     = 70;     //** length of the table 70*
-    int    time_steps = 10000;  //** number of time steps to take 10000*
+    int    length     = 10;     //** length of the table 70*
+    int    time_steps = 2000;  //** number of time steps to take 10000*
     int    total_ants = 40000;  // initial number of ants
     
     // work arrays
@@ -66,31 +66,32 @@ int main()
     report_4_ints(0, total_ants, nmin, nmax);
     
     // run time steps
-    for (int t = 0; t < time_steps; t++) {
-        
+    for (int t = 0; t < time_steps; t++) {     
         // ants move to a new an auxiliary new 'table'
         // empty auxiliary table first
         new_number_of_ants = clear_array(new_number_of_ants);
-
         // have the ants move once
         new_number_of_ants = ants_move_once(number_of_ants, new_number_of_ants);
-
         // update number_of_ants
         number_of_ants = copy_array(new_number_of_ants, number_of_ants);
- 
         // count ants and determine minimum and maximum number on a square
         std::tie(total_ants, nmin, nmax) = count_min_max(total_ants, number_of_ants);
         
         // report
        // report_4_ints(t+1, total_ants, nmin, nmax);
+        if (t == 1000){
+            rarray<int,2> number_of_ants_1000(length,length); 
+            number_of_ants_1000 = copy_array(number_of_ants, number_of_ants_1000);
+        }
+        if ((t % 1000 == 0) && (t > 1000)){
+            int div = t/1000; // multiple of 1000 we're at
+            int ny = length*div; // length of new array
+            rarray<int,2> new_number_of_ants_1000(length,ny); //auxiliary new array
+            new_number_of_ants_1000 = append_array(number_of_ants_1000, number_of_ants);
+            std::cout << new_number_of_ants_1000 << std::endl;
+        }
     }
     
-    rarray<int,2> array_1(3,3);
-    rarray<int,2> array_2(3,9);
-    std::cout << array_1 << std::endl;
-    std::cout << array_2 << std::endl;
-    std::cout << append_array(array_1, array_2) << std::endl;
-
     netCDF_write(new_number_of_ants);
     netCDF_read();
     return 0;
