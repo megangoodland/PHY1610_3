@@ -2,16 +2,18 @@
 #include <vector>
 #include <netcdf>
 #include <iostream>
+#include <rarray>
 #include "netCDF_writing.h"
 
 // writes file
 using namespace netCDF;
-int netCDF_write() {
-   int nx = 6, ny = 12;
+int netCDF_write(rarray<int,2>& array_to_print) {
+   int nx = array_to_print.extent(0);
+   int ny = array_to_print.extent(1);
    int dataOut[nx][ny]; 
    for(int i = 0; i < nx; i++)
        for(int j = 0; j < ny; j++)
-             dataOut[i][j] = i * ny + j;
+             dataOut[i][j] = array_to_print[i][j];
    // Create the netCDF file.
    NcFile dataFile("1st.netCDF.nc", NcFile::replace);
    // Create the two dimensions.
@@ -23,7 +25,7 @@ int netCDF_write() {
    // Create the data variable.
    NcVar data = dataFile.addVar("data", ncInt, dims);
    // Put the data in the file.
-   data.putVar(&dataOut);
+   data.putVar(&dataOut); // writing all the data in one operation
    // Add an attribute.
    dataFile.putAtt("Creation date:", "27 Jan 2019");
    return 0; 
@@ -45,11 +47,11 @@ int netCDF_read() {
     for(int i = 0; i < nx; i++)
       p[i] = &p[0][i * ny];
       
-    // Create the data variable.
+    // Retrieve the variable named "data"
     NcVar data = dataFile.getVar("data");
     // Put the data in a var.
     data.getVar(p[0]);
-  
+   // arranging it like a matrix
     for(int i = 0; i < nx; i++) {
       for(int j = 0; j < ny; j++) {
          std::cout << p[i][j] << " "; 
