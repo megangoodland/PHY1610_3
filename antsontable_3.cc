@@ -84,6 +84,10 @@ int main()
         // report
         report_4_ints(t+1, total_ants, nmin, nmax);
     }
+    
+    rarray<int,2> array_1(4,4);
+    rarray<int,2> array_2(4,4);
+    std::cout << array_1 << std::endl;
 
     netCDF_write(new_number_of_ants);
     netCDF_read();
