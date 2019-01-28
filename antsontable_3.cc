@@ -38,32 +38,13 @@
 #include "ants_move_once.h"
 #include "netCDF_writing.h"
 using namespace std;
-// outputs holding array with addition added
-// input holding array, addition array, and which multiple of 1000 we're at
-rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& holding_array, int mult){
-    int nx = addition_array.extent(0); // the x dimension and y dimension of addition_array
-    //int ny = holding_array.extent(1); // the y dimension of holding_array
-    int j_start = (mult-1)*nx; // starting j for holding array 
-    // ex. mult = 1, 50x50 matrix, j_start is 0
-    //     mult = 2, 50x50 matrix, j_start is 50
-
-    // populate holding array
-    for (int i = 0; i < nx; i++) {
-        for (int j = 0; j < nx; j++) {
-            holding_array[i][j+j_start] = addition_array[i][j];
-        }
-    }
-    return holding_array;
-}
-
-
 
 // Main driver function of antsontable.cc
 int main(){
 
     // parameters
-    int    length     = 40;     //** length of the table 70*
-    int    time_steps = 3000;  //** number of time steps to take 10000*
+    int    length     = 70;     //** length of the table 70*
+    int    time_steps = 10000;  //** number of time steps to take 10000*
     int    total_ants = 40000;  // initial number of ants
     
     // work arrays
@@ -107,7 +88,6 @@ int main(){
             number_of_ants_1000 = append_array(number_of_ants, number_of_ants_1000, save_number);
         }
             
-        netCDF_write(number_of_ants_1000);
     }
    
     netCDF_write(number_of_ants_1000);   
