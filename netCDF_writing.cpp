@@ -1,7 +1,7 @@
 // netCDF_writing.cpp
 #include <vector>
 #include <netcdf>
-#include netCDF_writing.h
+#include "netCDF_writing.h"
 
 using namespace netCDF;
 int netCDF_write() {
