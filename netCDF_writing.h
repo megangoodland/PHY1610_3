@@ -9,4 +9,9 @@
 
 int netCDF_write();
 
+// Function to read netCDF file
+//
+
+int netCDF_read();
+
 #endif /* netCDF_writing_h */
