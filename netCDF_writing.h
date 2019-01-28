@@ -10,7 +10,7 @@ int netCDF_write(rarray<int,2>& array_to_print);
 
 // Function to read netCDF file
 // Reads netCDF file and formats data in separate small square arrays. The j dimension is output with spaces between,
-// the i dimension is output with newlines between.
+// the i dimension is output with newlines between. Notes output are custom to antsontable project.
 int netCDF_read();
 
 #endif /* netCDF_writing_h */
