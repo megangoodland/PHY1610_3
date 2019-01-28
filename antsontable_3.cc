@@ -89,8 +89,10 @@ int main(){
             number_of_ants_1000 = append_array(number_of_ants, number_of_ants_1000, save_number);}       
     }
     
+    // writing and reading the saved number_of_ants in a netCDF file
     netCDF_write(number_of_ants_1000);   
     netCDF_read();
+    
     return 0;
 }
 
