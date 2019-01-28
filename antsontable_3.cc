@@ -42,8 +42,7 @@ using namespace std;
 
 
 // Main driver function of antsontable.cc
-int main()
-{
+int main(){
 
     // parameters
     int    length     = 5;     //** length of the table 70*
@@ -66,7 +65,7 @@ int main()
     report_4_ints(0, total_ants, nmin, nmax);
     
     // run time steps
-    for (int t = 0; t < time_steps; t++) {     
+    for (int t = 0; t < time_steps; t++)     
         // ants move to a new an auxiliary new 'table'
         // empty auxiliary table first
         new_number_of_ants = clear_array(new_number_of_ants);
@@ -79,9 +78,9 @@ int main()
         
         // report
        // report_4_ints(t+1, total_ants, nmin, nmax);
-        if (t % 1000 == 0){
+        if (t % 1000 == 0)
             netCDF_write(number_of_ants);
-        }
+        
     //netCDF_write(new_number_of_ants);
     netCDF_read();
     return 0;
