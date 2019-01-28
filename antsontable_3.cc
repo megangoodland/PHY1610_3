@@ -37,8 +37,25 @@
 #include "array_2d_tools.h"
 #include "ants_move_once.h"
 #include "netCDF_writing.h"
-
 using namespace std;
+// outputs holding array with addition added
+// input holding array, addition array, and which multiple of 1000 we're at
+rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& holding_array, int mult){
+    int nx = addition_array.extent(0); // the x dimension and y dimension of addition_array
+    //int ny = holding_array.extent(1); // the y dimension of holding_array
+    int j_start = (mult-1)*nx; // starting j for holding array 
+    // ex. mult = 1, 50x50 matrix, j_start is 0
+    //     mult = 2, 50x50 matrix, j_start is 50
+
+    // populate holding array
+    for (int i = 0; i < nx; i++) {
+        for (int j = 0; j < nx; j++) {
+            holding_array[i][j+j_start] = addition_array[i][j];
+        }
+    }
+    return holding_array;
+}
+
 
 
 // Main driver function of antsontable.cc
@@ -55,6 +72,11 @@ int main(){
     int nmin = total_ants;                 // will hold the minimum number of ants on any square
     int nmax = 0;                          // will hold the maximum number of ants on any square
     
+    // want to save the number of ants on the table every 1000 timesteps
+    int nsaves = time_steps/1000;
+    int ny = nsaves*length;
+    rarray<int,2> number_of_ants_1000(length,ny); // will save the data of number_of_ants array every 1000 timesteps
+    
     // place the ants evenly on the table
     number_of_ants = distribute_on_array(total_ants, number_of_ants);
    
@@ -65,8 +87,8 @@ int main(){
     report_4_ints(0, total_ants, nmin, nmax);
     
     // run time steps
+
     for (int t = 0; t < time_steps; t++){
-        
         // ants move to a new an auxiliary new 'table'
         // empty auxiliary table first
         new_number_of_ants = clear_array(new_number_of_ants);
@@ -79,9 +101,16 @@ int main(){
         
         // report
         report_4_ints(t+1, total_ants, nmin, nmax);
-        if ((t+1) % 1000 == 0){
-            netCDF_write(number_of_ants);}
+        
+        if ((t+1) % 1000 == 0){ // if the time step is divisible by 1000
+            int save_number = (t+1)/1000;
+            number_of_ants_1000 = append_array(number_of_ants, number_of_ants_1000, save_number);
+            cout << number_of_ants_1000 << endl;
+        }
+            
+        netCDF_write(number_of_ants);
     }
+   
         
     //netCDF_write(new_number_of_ants);
     netCDF_read();
