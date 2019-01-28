@@ -24,8 +24,10 @@ rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_arr
     std::cout << "first loopy" << std::endl;
     for (int i = 0; i < nx; i++) {
         for (int j = 0; j < ny_old; j++) {
-            new_array[i][j] = old_array[i][j];
             std::cout << "i " << i << " j " << j << std::endl;
+            std::cout << "old array[i,j] " << old_array[i][j] << std::endl;
+            new_array[i][j] = old_array[i][j];
+            std::cout << "new array[i,j] " << new_array[i][j] << std::endl;
         }
     }
     std::cout << "second loopy" << std::endl;
@@ -33,6 +35,9 @@ rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_arr
         for (int j = ny_old; j < ny_new; j++) {
             new_array[i][j] = addition_array[i][j];
             std::cout << "i " << i << " j " << j << std::endl;
+            std::cout << "old array[i,j] " << old_array[i][j] << std::endl;
+            new_array[i][j] = old_array[i][j];
+            std::cout << "new array[i,j] " << new_array[i][j] << std::endl;
         }
     }
     std::cout << new_array << std::endl;
