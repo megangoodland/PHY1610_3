@@ -6,8 +6,7 @@
 
 // Function to write netCDF file
 //
-
-int netCDF_write();
+int netCDF_write(rarray<int,2>& array_to_print);
 
 // Function to read netCDF file
 //
