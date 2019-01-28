@@ -85,8 +85,8 @@ int main()
        // report_4_ints(t+1, total_ants, nmin, nmax);
     }
     
-    rarray<int,2> array_1(4,4);
-    rarray<int,2> array_2(4,8);
+    rarray<int,2> array_1(3,3);
+    rarray<int,2> array_2(3,9);
     std::cout << array_1 << std::endl;
     std::cout << array_2 << std::endl;
     std::cout << append_array(array_1, array_2) << std::endl;
