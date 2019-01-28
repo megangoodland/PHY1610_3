@@ -11,12 +11,11 @@
 #include <rarray>
 using namespace std;
 
-// append_array: adds square array to end of existing array, returns combination
+// append_array: adds square array to holding array with size that is multiple of square array dimension size. 
 // Parameters:
-// inputs: addition_array: the square array to add to the end of old_array
-//         old_array: the old array
-// output: old array with addition array tacked on the end in the second dimension
-rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_array);
+//      inputs:   holding array, addition array, and which position within holding array to place additiona array (mult)
+//      output:   holding array with addition added
+rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& holding_array, int mult){
 
 // distribute_on_array: distributes total number given evenly on 2D array
 // Parameters:
