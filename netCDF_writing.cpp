@@ -13,10 +13,10 @@ using namespace netCDF;
 int netCDF_write(rarray<int,2>& array_to_print) {
    int nx = array_to_print.extent(0);
    int ny = array_to_print.extent(1);
- //  int dataOut[nx][ny]; 
- //  for(int i = 0; i < nx; i++)
- //      for(int j = 0; j < ny; j++)
- //            dataOut[i][j] = array_to_print[i][j];
+   int dataOut[nx][ny]; 
+   for(int i = 0; i < nx; i++)
+       for(int j = 0; j < ny; j++)
+             dataOut[i][j] = array_to_print[i][j];
    
    // Create the netCDF file.
    NcFile dataFile("1st.netCDF.nc", NcFile::replace);
