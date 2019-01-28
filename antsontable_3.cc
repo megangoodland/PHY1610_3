@@ -46,7 +46,7 @@ int main(){
 
     // parameters
     int    length     = 5;     //** length of the table 70*
-    int    time_steps = 2000;  //** number of time steps to take 10000*
+    int    time_steps = 3000;  //** number of time steps to take 10000*
     int    total_ants = 40000;  // initial number of ants
     
     // work arrays
@@ -79,7 +79,7 @@ int main(){
         
         // report
         report_4_ints(t+1, total_ants, nmin, nmax);
-        if (t % 1000 == 0){
+        if ((t+1) % 1000 == 0){
             netCDF_write(number_of_ants);}
     }
         
