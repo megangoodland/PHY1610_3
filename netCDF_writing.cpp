@@ -67,7 +67,7 @@ int netCDF_read() {
        //if ((j+1) % nx == 0){ // if there isn't a remainder 
        //   std::cout << std::endl; // new row
         //  std::cout << std::endl; // new row
-       }
+       //}
      }
     return 0; 
 }
