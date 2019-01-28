@@ -39,7 +39,7 @@ int netCDF_write(rarray<int,2>& array_to_print) {
 // nx is the length of the square matrices
 int netCDF_read() {
     // Specify the netCDF file. 
-    NcFile dataFile("1st.netCDF.nc", NcFile::read);
+    NcFile dataFile("ants.nc", NcFile::read);
     
     // Read the two dimensions.
     NcDim xDim = dataFile.getDim("x");
@@ -60,7 +60,8 @@ int netCDF_read() {
     // arranging data 
     int mult = ny/nx; //total # of matrices
     for (int m = 0; m < mult; m++){
-      std::cout << "This is saved matrix: " << (m+1) << std::endl;
+      std::cout << "This is Ant Positions save " << (m+1) << std::endl;
+      std::cout << std::endl; 
       for(int i = 0; i < nx; i++) {
          for(int j = (m*nx); j < ((m+1)*nx); j++) { //for 10x10 it would go 0-9, then 10-19, and so on
             std::cout << p[i][j] << " ";  // spaces between
