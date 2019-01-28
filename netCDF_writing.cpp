@@ -35,8 +35,7 @@ int netCDF_write(rarray<int,2>& array_to_print) {
    return 0; 
 }
 
-// reads file
-// nx is the length of the square matrices
+// reads and formats file for antsontable
 int netCDF_read() {
     // Specify the netCDF file. 
     NcFile dataFile("ants.nc", NcFile::read);
@@ -47,7 +46,7 @@ int netCDF_read() {
     int nx = xDim.getSize(); // this will be the length of sq matrices
     int ny = yDim.getSize(); // this will be longer by a int multiple
 
-    std::cout << "Our matrix is " << nx << " by " << ny << std::endl;
+    //std::cout << "Our matrix is " << nx << " by " << ny << std::endl;
     int **p = new int *[nx];
     p[0] = new int[nx * ny];
     for(int i = 0; i < nx; i++)
@@ -59,9 +58,10 @@ int netCDF_read() {
     data.getVar(p[0]);
     // arranging data 
     int mult = ny/nx; //total # of matrices
+    std::cout << "We saved " << mult << " ant positions." << std::endl;
     for (int m = 0; m < mult; m++){
       std::cout << std::endl; 
-      std::cout << "This is Ant Positions save " << (m+1) << std::endl;
+      std::cout << "This is ant positions Save " << (m+1) << std::endl;
       for(int i = 0; i < nx; i++) {
          for(int j = (m*nx); j < ((m+1)*nx); j++) { //for 10x10 it would go 0-9, then 10-19, and so on
             std::cout << p[i][j] << " ";  // spaces between
