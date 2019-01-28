@@ -36,6 +36,7 @@
 #include "report_4_integers.h"
 #include "array_2d_tools.h"
 #include "ants_move_once.h"
+#include "netCDF_writing.h"
 
 using namespace std;
 
