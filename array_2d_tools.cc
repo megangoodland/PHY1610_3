@@ -28,7 +28,7 @@ rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_arr
             new_array[i][j] = addition_array[i][j];
         }
     }
-    return new_array
+    return new_array;
     
 }
 
