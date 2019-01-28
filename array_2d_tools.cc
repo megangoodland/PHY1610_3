@@ -20,22 +20,19 @@ rarray<int,2> append_array(rarray<int,2>& addition_array, rarray<int,2>& old_arr
     int ny_new =  addition_array.extent(1) + old_array.extent(1);
     int ny_old =  old_array.extent(1);
     rarray<int,2> new_array(nx,ny_new); // initialize new array
+    // populate with old array
     for (int i = 0; i < nx; i++) {
         for (int j = 0; j < ny_old; j++) {
-            std::cout << "i " << i << " j " << j << std::endl;
-            std::cout << "old array[i,j] " << old_array[i][j] << std::endl;
             new_array[i][j] = old_array[i][j];
-            std::cout << "new array[i,j] " << new_array[i][j] << std::endl;
         }
     }
+    // populate with the addition array
     for (int i = 0; i < nx; i++) {
         for (int j = ny_old; j < ny_new; j++) {
             new_array[i][j] = addition_array[i][j-ny_old];
         }
     }
-    std::cout << new_array << std::endl;
     return new_array;
-    
 }
 
 
