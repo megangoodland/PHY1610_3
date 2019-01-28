@@ -29,7 +29,7 @@ int netCDF_write(rarray<int,2>& array_to_print) {
    // Create the data variable.
    NcVar data = dataFile.addVar("data", ncInt, dims);
    // Put the data in the file.
-   data.putVar(&array_to_print); // writing all the data in one operation
+   data.putVar(&dataOut); // writing all the data in one operation
    // Add an attribute.
    dataFile.putAtt("Creation date:", "27 Jan 2019");
    return 0; 
